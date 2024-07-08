@@ -1,0 +1,176 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Roboto, Arial, sans-serif;
+    background: #000 url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Control Panel */
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+button, select {
+    background: #1c1c1e;
+    border: none;
+    border-radius: 12px;
+    color: #c9c9cd;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    outline: none;
+}
+
+button:hover, select:hover {
+    background: #2c2c2e;
+}
+
+button:active {
+    background: #000;
+}
+
+select {
+    appearance: none;
+    text-align: center;
+}
+
+/* Slideshow Container */
+#fullscreen-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slideshow {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.slideshow img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 36px;
+    color: #333;
+    padding: 16px;
+    cursor: pointer;
+    transition: opacity 0.5s;
+    user-select: none;
+    opacity: 0;
+}
+
+#arrow-left {
+    left: 10px;
+}
+
+#arrow-right {
+    right: 10px;
+}
+
+#arrow-left:hover,
+#arrow-right:hover {
+    opacity: 1;
+}
+
+/* Progress Bar */
+#progress-bar-container {
+    position: absolute;
+    bottom: 20px;
+    width: 90%;
+    height: 4px;
+    background: #212121;
+    border-radius: 2px;
+    display: none;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0;
+    background: #696969;
+    border-radius: 2px;
+}
+
+/* Button States */
+button[data-state="on"] {
+    background: #0a84ff;
+    color: white;
+}
+
+button.touched {
+    background: #333;
+    color: white;
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+    .controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    button, select {
+        font-size: 14px;
+        padding: 10px 14px;
+        flex: 1 1 40%;
+        margin: 5px;
+        max-width: 100px;
+    }
+
+    .arrow {
+        font-size: 24px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .controls {
+        position: fixed;
+        top: 10px;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 12px;
+        gap: 5px;
+    }
+
+    button, select {
+        font-size: 12px;
+        padding: 8px 10px;
+        max-width: 80px;
+    }
+
+    .arrow {
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    #fullscreen-container {
+        height: calc(100vh - 100px);
+    }
+}
